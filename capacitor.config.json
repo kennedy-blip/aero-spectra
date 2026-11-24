@@ -1,0 +1,7 @@
+{
+  "appId": "com.aerospectra.hygiene",
+  "appName": "Aero-Spectra",
+  "webDir": ".vercel/output/static",
+  "server": { "androidScheme": "https" },
+  "plugins": { "SplashScreen": { "launchShowDuration": 0 } }
+}
