@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    namespace 'com.aerospectra.hygiene'
+    compileSdk rootProject.ext.compileSdkVersion
+
+    kotlinOptions { jvmTarget = '17' }
+
+    defaultConfig {
+        applicationId 'com.aerospectra.hygiene'
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 12100
+        versionName '1.21.0'
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    buildTypes {
+        debug { applicationIdSuffix '' }
+        release {
+            // CI uses the local debug keystore so the preview artifact is installable for testing.
+            // Replace with a managed release key before Play Store distribution.
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+        }
+    }
+}
+
+repositories { flatDir { dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs' } }
+
+apply from: 'capacitor.build.gradle'
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:$rootProject.ext.androidxAppCompatVersion"
+    implementation "androidx.activity:activity-ktx:$rootProject.ext.androidxActivityVersion"
+    implementation "androidx.core:core-ktx:$rootProject.ext.androidxCoreVersion"
+    implementation 'androidx.webkit:webkit:1.10.0'
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+}

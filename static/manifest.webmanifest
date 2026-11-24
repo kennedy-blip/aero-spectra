@@ -1,0 +1,10 @@
+{
+  "name": "Aero-Spectra Environmental Workstation",
+  "short_name": "Aero-Spectra",
+  "description": "Offline-first indoor environmental screening tools.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07111e",
+  "theme_color": "#07111e",
+  "icons": []
+}
